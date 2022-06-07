@@ -10,4 +10,4 @@ class Item(BaseModel):
 @app.post("/modify")
 def modify(item: Item):
     s = item.sentence.replace(item.letters,"")
-    return{s}
+    return s
