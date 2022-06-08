@@ -3,11 +3,10 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class Item(BaseModel):
-    sentence: str
-    letters: str
 
-@app.post("/modify")
-def modify(item: Item):
-    s = item.sentence.replace(item.letters,"")
+
+@app.get("/get-modified/{sentence}/{letter}")
+def modify(sentence: str,letter: str):
+
+    s = sentence.replace(letter,"")
     return {"modified-sentence" : s}
